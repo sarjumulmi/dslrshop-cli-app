@@ -1,6 +1,6 @@
 class DslrShop::Camera
 
-  attr_accessor :brand, :name, :type, :availability, :price, :discount, :style, :reward, :url
+  attr_accessor :brand, :name, :url, :availability, :price, :discount, :type, :style, :rewards
   @@all = []
 
   def self.all
