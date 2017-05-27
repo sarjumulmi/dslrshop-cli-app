@@ -1,3 +1,5 @@
+require "bundler/setup"
+require "dslr_shop"
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 require "pry"

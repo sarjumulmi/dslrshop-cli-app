@@ -6,11 +6,13 @@ class DslrShop::Scraper
     camera_nodes.map {|camera|
       {
         brand: camera.search("div.desc-zone.zone h3 a span")[0].text,
-        name: camera.search("div.desc-zone.zone h3 a span")[1].text
-
+        name: camera.search("div.desc-zone.zone h3 a span")[1].text.chomp(" (Body Only)"),
+        availability: camera.search("p.scAvailabilityTri span").text,
+        price: camera.search("div.atc-price p span.price").text.strip
       }
-      
     }
+
+    
 
   end
 end
