@@ -23,10 +23,22 @@ class DslrShop::CLI
   end
 
   def list_cameras
-    puts "*******************************************************"
-    puts "Welcome to the DSLR Shop"
-    puts "Your one stop shop for the most popular DSLR cameras"
-    puts "*******************************************************"
+    puts "        List of the most popular cameras     ".blue
+    puts "*******************************************************".green
+    DslrShop::Camera.all.each.with_index(1) {|camera, index|
+      puts "#{index}. #{camera.brand} #{camera.name} - #{camera.price}"
+    }
+    puts "*********************************************************************************************".green
+  end
+
+  def display_menu
+    puts "*******************************************************".green
+    puts "              Welcome to the DSLR Shop".red
+    puts "  Your one stop shop for the most popular DSLR cameras".red
+    puts "*******************************************************".green
+    self.list_cameras
+    puts "Which camera number are you interested in today?"
+    puts "Please enter 1 ~ #{DslrShop::Camera.all.size}."
   end
 
 end
