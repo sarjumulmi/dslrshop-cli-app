@@ -4,7 +4,7 @@ class DslrShop::CLI
 
   def run
     make_cameras
-    add_camera_attributes
+    add_attributes_from_detail
     list_cameras
     display_menu
     goodbye
@@ -12,7 +12,14 @@ class DslrShop::CLI
 
   def make_cameras
     camera_collection = DslrShop::Scraper.scrape_from_list(LIST_PAGE)
-    cameras = DslrShop::Camera.create_from_collection(camera_collection)
+    DslrShop::Camera.create_from_collection(camera_collection)
+  end
+
+  def add_attributes_from_detail
+    DslrShop::Camera.all.each {|camera|
+      camera_attributes = DslrShop::Scraper.scrape_from_detail(camera.url)
+      camera.add_attributes(camera_attributes)
+    }
   end
 
   def list_cameras

@@ -1,6 +1,6 @@
 class DslrShop::Camera
 
-  attr_accessor :brand, :name, :url, :availability, :price, :discount, :type, :style, :rewards
+  attr_accessor :brand, :name, :url, :availability, :price, :discount, :style,:type, :rewards
   @@all = []
 
   def self.all
@@ -21,11 +21,11 @@ class DslrShop::Camera
     }
   end
 
-  def self.add_attributes(attribute_hash)
+  def add_attributes(attribute_hash)
     attribute_hash.each {|key, value|
       self.send(("#{key}="), value)
     }
-    self
+
   end
 
 end

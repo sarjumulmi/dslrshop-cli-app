@@ -19,8 +19,12 @@ class DslrShop::Scraper
     camera_attr = {}
     camera_attr[:discount] = doc.search("div.pPrice p span").text.strip
     camera_attr[:type] = doc.search("div.product-highlights ul li")[0].text
-    camera_attr[:style] = doc.search("div.items-group p span")[0].text
-    camera_attr[:rewards] = doc.search("div.acTwoPercent a").text
+    # begin
+    camera_attr[:style] = doc.search("div.items-group p span")[0].text if doc.search("div.items-group p span")[0]
+    # rescue StandardError
+    # binding.pry
+    # end
+    camera_attr[:rewards] = doc.search("div.acTwoPercent a").text if doc.search("div.acTwoPercent a").size>0
     camera_attr
   end
 
