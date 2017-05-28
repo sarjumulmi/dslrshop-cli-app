@@ -3,4 +3,4 @@
 require "bundler/setup"
 require "dslr_shop"
 
-puts "hellow world."
+DslrShop::CLI.new.run
