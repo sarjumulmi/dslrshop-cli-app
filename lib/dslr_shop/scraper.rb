@@ -24,5 +24,4 @@ class DslrShop::Scraper
     camera_attr
   end
 
-
 end

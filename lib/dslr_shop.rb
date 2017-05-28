@@ -3,6 +3,7 @@ require "pry"
 require "open-uri"
 require "require_all"
 require "dslr_shop/version"
+require 'colorize'
 
 require_relative "dslr_shop/camera"
 require_relative "dslr_shop/cli"

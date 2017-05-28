@@ -11,13 +11,13 @@ class DslrShop::Camera
     camera_hash.each {|key, value|
       self.send(("#{key}="),value)
     }
-    @@ll << self
+    @@all << self
   end
 
   def self.create_from_collection(camera_collection)
     # camera_collection=> array of camera_hashes
     camera_collection.each {|camera_hash|
-      Camera.new(camera_hash)
+      self.new(camera_hash)
     }
   end
 
