@@ -56,14 +56,16 @@ class DslrShop::CLI
     end
 
     if index.to_i>0
-      puts "#{camera_list[index.to_i - 1].brand.upcase} #{camera_list[index.to_i - 1].name}".colorize(:color => :light_blue, :background => :yellow)
-      puts "Rank: #{index}".colorize(:color => :light_blue, :background => :yellow)
-      puts "Camera Type: #{camera_list[index.to_i - 1].type}".colorize(:color => :light_blue, :background => :yellow)
-      puts "Includes: #{camera_list[index.to_i - 1].style}".colorize(:color => :light_blue, :background => :yellow) if camera_list[index.to_i - 1].style
-      puts "Availability: #{camera_list[index.to_i - 1].availability}".colorize(:color => :light_blue, :background => :yellow)
-      puts "You Pay: #{camera_list[index.to_i - 1].price}".colorize(:color => :light_blue, :background => :yellow)
-      puts "Discount Received: #{camera_list[index.to_i - 1].discount}".colorize(:color => :light_blue, :background => :yellow)
-      puts "DslrShop Rewards: #{camera_list[index.to_i - 1].rewards}".colorize(:color => :light_blue, :background => :yellow) if camera_list[index.to_i - 1].rewards
+      puts "#{camera_list[index.to_i - 1].brand.upcase} #{camera_list[index.to_i - 1].name}".colorize(:color => :light_blue, :background => :light_yellow)
+      puts "Rank: #{index}".colorize(:color => :light_blue, :background => :light_yellow)
+      puts "Camera Type: #{camera_list[index.to_i - 1].type}".colorize(:color => :light_blue, :background => :light_yellow)
+      puts "Includes: #{camera_list[index.to_i - 1].style}".colorize(:color => :light_blue, :background => :light_yellow) if camera_list[index.to_i - 1].style
+      puts "Availability: #{camera_list[index.to_i - 1].availability}".colorize(:color => :light_blue, :background => :light_yellow)
+      puts "You Pay: #{camera_list[index.to_i - 1].price}".colorize(:color => :light_blue, :background => :light_yellow)
+      puts "Discount Received: #{camera_list[index.to_i - 1].discount}".colorize(:color => :light_blue, :background => :light_yellow)
+      puts "DslrShop Rewards: #{camera_list[index.to_i - 1].rewards}".colorize(:color => :light_blue, :background => :light_yellow) if camera_list[index.to_i - 1].rewards
+      puts "For more information about this camera, visit:".colorize(:color => :light_blue, :background => :light_yellow)
+      puts "\t\t#{camera_list[index.to_i - 1].url}".colorize(:color => :light_blue, :background => :light_yellow)
       puts "*********************************************************************************************".green
     elsif index == "LIST" || index == "list"
       self.list_cameras

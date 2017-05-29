@@ -28,4 +28,6 @@ class DslrShop::Scraper
     camera_attr
   end
 
+  # This gem provides an interactive CLI to view the top 24 DSLR cameras as rated by the photography store B & H Photography's website.
+
 end

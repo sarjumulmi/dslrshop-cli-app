@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["sarjumulmi"]
   spec.email         = ["mulmi.sarju@gmail.com"]
 
-  spec.summary       = %q{DSlR shop}
-  # spec.description   = %q{Write a longer description or delete this line.}
-  spec.homepage      = "https://learn.co/sarjumulmi."
+  spec.summary       = %q{The best DSLR cameras in the world}
+  spec.description   = %q{Provides a list of 24 of the best rated DSLR cameras per B & H Photography Store}
+  spec.homepage      = "http://rubygems.org/gems/dslr_shop"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
     f.match(%r{^(test|spec|features)/})
   end
   spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables   = ["dslr_shop"]
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.14"

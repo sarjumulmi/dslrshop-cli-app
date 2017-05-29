@@ -1,28 +1,25 @@
 # DslrShop
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dslr_shop`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem provides an interactive CLI to view the top 24 DSLR cameras as rated by the photography store B & H Photography.
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'dslr_shop'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install dslr_shop
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the following in the command prompt
+
+    $ dslr_shop
+
+Follow the on-screen menu.
+  Type the camera number to get the detail view of the camera.
+  Type "LIST" or "list" to get the list view again.
+  Type "MENU" or "menu" to go back to the main menu.
+  Type "EXIT" or "exit" to exit the program.
+
+HAVE FUN!!!!!
+
 
 ## Development
 
@@ -38,4 +35,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
