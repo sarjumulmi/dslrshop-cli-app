@@ -24,7 +24,7 @@ class DslrShop::Scraper
     # rescue StandardError
     # binding.pry
     # end
-    camera_attr[:rewards] = doc.search("div.acTwoPercent a").text if doc.search("div.acTwoPercent a").size>0
+    camera_attr[:rewards] = doc.search("div.acTwoPercent a").text.gsub(/\s+[a-z]*$/, "") if doc.search("div.acTwoPercent a").size>0
     camera_attr
   end
 
