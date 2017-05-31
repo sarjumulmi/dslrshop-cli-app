@@ -4,22 +4,18 @@ class DslrShop::CLI
 
   def run
     make_cameras
-    add_attributes_from_detail
+    # add_attributes_from_detail
     list_cameras
     display_menu
     goodbye
   end
 
   def make_cameras
-    camera_collection = DslrShop::Scraper.scrape_from_list(LIST_PAGE)
-    DslrShop::Camera.create_from_collection(camera_collection)
+    DslrShop::Scraper.scrape_from_list(LIST_PAGE)
   end
 
-  def add_attributes_from_detail
-    DslrShop::Camera.all.each {|camera|
-      camera_attributes = DslrShop::Scraper.scrape_from_detail(camera.url)
-      camera.add_attributes(camera_attributes)
-    }
+  def add_attributes_from_detail(camera)
+    camera.add_attributes
   end
 
   def list_cameras
@@ -56,6 +52,7 @@ class DslrShop::CLI
     end
 
     if index.to_i>0
+      self.add_attributes_from_detail(camera_list[index.to_i - 1])
       puts "#{camera_list[index.to_i - 1].brand.upcase} #{camera_list[index.to_i - 1].name}".colorize(:color => :light_blue, :background => :light_yellow)
       puts "Rank: #{index}".colorize(:color => :light_blue, :background => :light_yellow)
       puts "Camera Type: #{camera_list[index.to_i - 1].type}".colorize(:color => :light_blue, :background => :light_yellow)
