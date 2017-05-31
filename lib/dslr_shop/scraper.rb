@@ -13,18 +13,18 @@ class DslrShop::Scraper
     }
   end
 
-  def self.scrape_from_detail(detail_url)
-    doc = Nokogiri::HTML(open(detail_url))
-    camera_attr = {}
-    camera_attr[:discount] = doc.search("div.pPrice p span").text.strip
-    camera_attr[:type] = doc.search("div.product-highlights ul li")[0].text
+  def self.scrape_from_detail(camera)
+    doc = Nokogiri::HTML(open(camera.url))
+
+    camera.discount = doc.search("div.pPrice p span").text.strip
+    camera.type = doc.search("div.product-highlights ul li")[0].text
     # begin
-    camera_attr[:style] = doc.search("div.items-group p span")[0].text if doc.search("div.items-group p span")[0]
+    camera.style = doc.search("div.items-group p span")[0].text if doc.search("div.items-group p span")[0]
     # rescue StandardError
     # binding.pry
     # end
-    camera_attr[:rewards] = doc.search("div.acTwoPercent a").text.gsub(/\s+[a-z]*$/, "") if doc.search("div.acTwoPercent a").size>0
-    camera_attr
+    camera.rewards = doc.search("div.acTwoPercent a").text.gsub(/\s+[a-z]*$/, "") if doc.search("div.acTwoPercent a").size>0
+    camera
   end
 
   # This gem provides an interactive CLI to view the top 24 DSLR cameras as rated by the photography store B & H Photography's website.

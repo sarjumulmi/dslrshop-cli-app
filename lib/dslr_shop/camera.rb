@@ -16,18 +16,15 @@ class DslrShop::Camera
     @@all << self
   end
 
-  def self.create_from_collection(camera_collection)
-    # camera_collection=> array of camera_hashes
-    camera_collection.each {|camera_hash|
-      self.new(camera_hash)
-    }
-  end
+  # def self.create_from_collection(camera_collection)
+  #   # camera_collection=> array of camera_hashes
+  #   camera_collection.each {|camera_hash|
+  #     self.new(camera_hash)
+  #   }
+  # end
 
-  def add_attributes(attribute_hash)
-    attribute_hash.each {|key, value|
-      self.send(("#{key}="), value)
-    }
-
+  def add_attributes
+    DslrShop::Scraper.scrape_from_detail(self)
   end
 
 end
