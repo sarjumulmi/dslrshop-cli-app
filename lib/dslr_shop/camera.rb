@@ -7,10 +7,12 @@ class DslrShop::Camera
     @@all
   end
 
-  def initialize(camera_hash)
-    camera_hash.each {|key, value|
-      self.send(("#{key}="),value)
-    }
+  def initialize(brand = nil, name = nil, availability = nil, price = nil, url = nil)
+    @brand = brand
+    @name = name
+    @availability = availability
+    @price = price
+    @url = url
     @@all << self
   end
 

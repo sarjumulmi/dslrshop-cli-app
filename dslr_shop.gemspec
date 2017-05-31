@@ -30,11 +30,11 @@ Gem::Specification.new do |spec|
   spec.executables   << "dslr_shop"
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.14"
+  spec.add_runtime_dependency "bundler", "~> 1.14"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "nokogiri", ">= 0"
+  spec.add_runtime_dependency "nokogiri", ">= 0"
   spec.add_development_dependency "pry", ">= 0"
-  spec.add_development_dependency "require_all"
-  spec.add_development_dependency "colorize"
+  spec.add_runtime_dependency "require_all"
+  spec.add_runtime_dependency "colorize"
 end

@@ -4,13 +4,12 @@ class DslrShop::Scraper
     doc = Nokogiri::HTML(open(list_url))
     camera_nodes = doc.search("div.item.clearfix")
     camera_nodes.map {|camera|
-      {
-        brand: camera.search("div.desc-zone.zone h3 a span")[0].text,
-        name: camera.search("div.desc-zone.zone h3 a span")[1].text.chomp(" (Body Only)"),
-        availability: camera.search("p.scAvailabilityTri span").text.strip,
-        price: camera.search("div.atc-price p span.price").text.strip,
-        url: camera.search("div.desc-zone.zone h3 a").attr('href').text
-      }
+      camera = DslrShop::Camera.new
+      camera.brand = camera.search("div.desc-zone.zone h3 a span")[0].text
+      camera.name =  camera.search("div.desc-zone.zone h3 a span")[1].text.chomp(" (Body Only)")
+      camera.availability = camera.search("p.scAvailabilityTri span").text.strip
+      camera.price =  camera.search("div.atc-price p span.price").text.strip
+      camera.url =  camera.search("div.desc-zone.zone h3 a").attr('href').text
     }
   end
 
